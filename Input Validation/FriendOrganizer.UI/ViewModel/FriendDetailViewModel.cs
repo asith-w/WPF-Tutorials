@@ -32,11 +32,13 @@ namespace FriendOrganizer.UI.ViewModel
       var friend = await _dataService.GetByIdAsync(friendId);
 
       Friend = new FriendWrapper(friend);
+      //execute when chnaging property  
       Friend.PropertyChanged += (s, e) =>
         {
           if(e.PropertyName==nameof(Friend.HasErrors))
           {
             ((DelegateCommand)SaveCommand).RaiseCanExecuteChanged();
+
           }
         };
       ((DelegateCommand)SaveCommand).RaiseCanExecuteChanged();
@@ -67,7 +69,7 @@ namespace FriendOrganizer.UI.ViewModel
 
     private bool OnSaveCanExecute()
     {
-      // TODO: Check in addition if friend has changes
+      // TODO: Check in addition if friend has changes...
       return Friend!=null && !Friend.HasErrors;
     }
 
