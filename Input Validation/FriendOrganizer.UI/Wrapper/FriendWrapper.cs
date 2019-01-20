@@ -1,5 +1,6 @@
 ﻿using FriendOrganizer.Model;
 using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
 namespace FriendOrganizer.UI.Wrapper
@@ -18,26 +19,39 @@ namespace FriendOrganizer.UI.Wrapper
             set
             {
                 SetValue(value);
-                ValidateProperty(nameof(FirstName));
+                //ValidateProperty(nameof(FirstName));
                 //set { SetValue(value, nameof(LastName)); }   // OR 
                 //set { SetValue<string>(value, nameof(LastName)); }  // OR 
             }
         }
 
 
-        private void ValidateProperty(string propertyName)
+        //private void ValidateProperty(string propertyName)
+        //{
+        //    ClearError(propertyName);
+        //    switch (propertyName)
+        //    {
+        //        case nameof(FirstName):
+        //            if (string.Equals(FirstName, "rob", StringComparison.OrdinalIgnoreCase))
+        //            {
+        //                AddErrors(propertyName, "this is a error");
+        //            }
+        //            break;
+        //    }
+        //}
+
+        protected override IEnumerable<string> ValidateProperty(string propertyName)
         {
-            ClearError(propertyName);
+            //return base.ValidateProperty(propertyName); 
             switch (propertyName)
             {
                 case nameof(FirstName):
                     if (string.Equals(FirstName, "rob", StringComparison.OrdinalIgnoreCase))
                     {
-                        AddErrors(propertyName, "this is a error");
+                        yield return "rob is not valid...this is a error";
                     }
                     break;
             }
-            //throw new NotImplementedException();
         }
 
         public string LastName
