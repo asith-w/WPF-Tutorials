@@ -12,7 +12,7 @@ using System.Windows.Data;
 namespace FriendOrganizer.UI.ViewModel
 {
     public class NavigationViewModel : ViewModelBase, INavigationViewModel
-    {
+    { 
         private IFriendLookupDataService _friendLookupService;
         private IEventAggregator _eventAggregator;
 
@@ -42,17 +42,17 @@ namespace FriendOrganizer.UI.ViewModel
             }
 
 
-            _customerView = CollectionViewSource.GetDefaultView(Friends);
-            _customerView.Filter = CustomerFilter;
+            //_customerView = CollectionViewSource.GetDefaultView(Friends);
+            //_customerView.Filter = CustomerFilter;
 
         }
 
         public ObservableCollection<NavigationItemViewModel> Friends { get; }
 
-        public ICollectionView Friends5
-        {
-            get { return _customerView; }
-        }
+        //public ICollectionView Friends5
+        //{
+        //    get { return _customerView; }
+        //}
 
         private NavigationItemViewModel _selectedFriend;
 
@@ -71,28 +71,28 @@ namespace FriendOrganizer.UI.ViewModel
             }
         }
 
-        private string _searchText;
+        //private string _searchText;
 
-        public string SearchText
-        {
-            get { return _searchText; }
-            set
-            {
-                _searchText = value;
-                //NotifyPropertyChanged("SearchText");
-                _customerView.Refresh();
+        //public string SearchText
+        //{
+        //    get { return _searchText; }
+        //    set
+        //    {
+        //        _searchText = value;
+        //        //NotifyPropertyChanged("SearchText");
+        //        _customerView.Refresh();
 
-            }
-        }
+        //    }
+        //}
 
-        ICollectionView _customerView;
+        //ICollectionView _customerView;
 
-        private bool CustomerFilter(object item)
-        {
-            var customer = item as NavigationItemViewModel;
+        //private bool CustomerFilter(object item)
+        //{
+        //    var customer = item as NavigationItemViewModel;
 
-            return customer.DisplayMember.ToLower().Contains(SearchText.ToLower());// customer.DisplayMember.
-        }
+        //    return customer.DisplayMember.ToLower().Contains(SearchText.ToLower());// customer.DisplayMember.
+        //}
     }
 }
 

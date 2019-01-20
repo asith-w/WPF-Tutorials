@@ -7,12 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-      <!--<ListView ItemsSource="{Binding Friends}"
+        <ListView ItemsSource="{Binding Friends}"
                 SelectedItem="{Binding SelectedFriend,Mode=TwoWay}"
-              DisplayMemberPath="DisplayMember"/>-->
+              DisplayMemberPath="DisplayMember"/>
 
 
-        <ListBox Grid.Row= "0" ItemsSource="{Binding Friends5}"
+        <!--<ListBox Grid.Row= "0" ItemsSource="{Binding Friends5}"
                 SelectedItem="{Binding SelectedFriend,Mode=TwoWay}"
               DisplayMemberPath="DisplayMember"/>
 
@@ -21,6 +21,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+        </Grid.RowDefinitions>-->
     </Grid>
 </UserControl>

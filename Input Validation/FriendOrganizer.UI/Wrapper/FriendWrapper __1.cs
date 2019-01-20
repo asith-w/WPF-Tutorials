@@ -8,9 +8,9 @@ using System.Linq;
 
 namespace FriendOrganizer.UI.Wrapper
 {
-    public class FriendWrapper : ViewModelBase, INotifyDataErrorInfo
+    public class FriendWrapper__1 : ViewModelBase, INotifyDataErrorInfo
     {
-        public FriendWrapper(Friend model)
+        public FriendWrapper__1(Friend model)
         {
             Model = model;
         }
@@ -128,24 +128,5 @@ namespace FriendOrganizer.UI.Wrapper
 
 
 
-
-    public class ModelWrapper<T>
-    {
-        public ModelWrapper(T model)
-        {
-            Model = _model;
-        }
-        private T _model;
-        public T Model { get; }
-    }
-
-    //public string FirstName
-    //{
-    //    get { return Model.FirstName; }
-    //    set
-    //    {
-    //        Model.FirstName = value;
-    //        OnPropertyChanged();
-    //    }
-    //}
+    
 }
