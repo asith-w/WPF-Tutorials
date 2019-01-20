@@ -3,16 +3,10 @@ using System;
 
 namespace FriendOrganizer.UI.Wrapper
 {
-    public class FriendWrapper : NotifyDataErrorInfoBase
+    public class FriendWrapper : ModelWrapper<Friend>
     {
-        public FriendWrapper(Friend model)
+        public FriendWrapper(Friend model) : base(model)
         {
-            Model = model;
-        }
-
-        public Friend Model
-        {
-            get;
         }
 
         public int Id { get { return Model.Id; } }
@@ -62,36 +56,5 @@ namespace FriendOrganizer.UI.Wrapper
                 OnPropertyChanged();
             }
         }
-
-        
-
     }
-
-
-
-
-
-
-
-
-
-    public class ModelWrapper<T>
-    {
-        public ModelWrapper(T model)
-        {
-            Model = _model;
-        }
-        private T _model;
-        public T Model { get; }
-    }
-
-    //public string FirstName
-    //{
-    //    get { return Model.FirstName; }
-    //    set
-    //    {
-    //        Model.FirstName = value;
-    //        OnPropertyChanged();
-    //    }
-    //}
 }
