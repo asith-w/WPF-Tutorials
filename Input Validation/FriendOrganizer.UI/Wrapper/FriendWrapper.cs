@@ -1,14 +1,9 @@
 ﻿using FriendOrganizer.Model;
-using FriendOrganizer.UI.ViewModel;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 
 namespace FriendOrganizer.UI.Wrapper
 {
-    public class FriendWrapper : ViewModelBase, INotifyDataErrorInfo
+    public class FriendWrapper : NotifyDataErrorInfoBase
     {
         public FriendWrapper(Friend model)
         {
@@ -68,58 +63,9 @@ namespace FriendOrganizer.UI.Wrapper
             }
         }
 
-        public bool HasErrors => _errorsByPropertyName.Any();
+        
 
-        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
-
-        public IEnumerable GetErrors(string propertyName)
-        {
-            return _errorsByPropertyName.ContainsKey(propertyName)
-                ? _errorsByPropertyName[propertyName]
-                : null;                
-        }
-
-        private void OnErrorChanged(string propertyName)
-        {
-            ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
-
-        }
-
-        private void AddErrors(string propertyName, string error)
-        {
-            if (!_errorsByPropertyName.ContainsKey(propertyName))
-            {
-                _errorsByPropertyName[propertyName] = new List<string>();
-            }
-
-            if (!_errorsByPropertyName[propertyName].Contains(error))
-            {
-                _errorsByPropertyName[propertyName].Add(error);
-                OnErrorChanged(propertyName);
-            }
-
-        }
-
-        private void ClearError(string propertyName)
-        {
-            if (_errorsByPropertyName.ContainsKey(propertyName))
-            {
-                _errorsByPropertyName.Remove(propertyName);
-                OnErrorChanged(propertyName);
-            }
-
-        }
-
-        Dictionary<string, List<String>> _errorsByPropertyName = new Dictionary<string, List<string>>();
     }
-
-
-
-
-
-
-
-
 
 
 

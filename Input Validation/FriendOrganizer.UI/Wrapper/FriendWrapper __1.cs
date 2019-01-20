@@ -45,7 +45,6 @@ namespace FriendOrganizer.UI.Wrapper
                     }
                     break;
             }
-            //throw new NotImplementedException();
         }
 
         public string LastName
