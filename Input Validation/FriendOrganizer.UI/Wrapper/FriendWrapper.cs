@@ -1,5 +1,6 @@
 ﻿using FriendOrganizer.Model;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace FriendOrganizer.UI.Wrapper
 {
@@ -13,14 +14,16 @@ namespace FriendOrganizer.UI.Wrapper
 
         public string FirstName
         {
-            get { return Model.FirstName; }
+            get { return GetValue<string>(nameof(FirstName)); }
             set
             {
-                Model.FirstName = value;
-                OnPropertyChanged();
+                SetValue(value);
                 ValidateProperty(nameof(FirstName));
+                //set { SetValue(value, nameof(LastName)); }   // OR 
+                //set { SetValue<string>(value, nameof(LastName)); }  // OR 
             }
         }
+
 
         private void ValidateProperty(string propertyName)
         {
@@ -39,21 +42,17 @@ namespace FriendOrganizer.UI.Wrapper
 
         public string LastName
         {
-            get { return Model.LastName; }
-            set
-            {
-                Model.LastName = value;
-                OnPropertyChanged();
-            }
+            get { return GetValue<string>(nameof(LastName)); }
+            set { SetValue(value); }
         }
+
 
         public string Email
         {
             get { return Model.Email; }
             set
             {
-                Model.Email = value;
-                OnPropertyChanged();
+                SetValue(value);
             }
         }
     }
